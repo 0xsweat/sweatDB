@@ -38,7 +38,7 @@ match action:
             if option == "n":
                 quit()
         with open(name + ".sweatdb", 'w') as f:
-            f.write("DATABASE NAME : " + name + " TIME CREATED : " + str(datetime.datetime.utcnow()) + " CREATED WITH SWEATDB\n")
+            f.write("DATABASE NAME : " + name + " TIME CREATED : " + str(datetime.datetime.utcnow()) + " CREATED WITH https://github.com/0xsweat/sweatDB\n")
             f.close()
     case "help":
         try:
