@@ -98,6 +98,7 @@ match action:
             with open(db + '.sweatdb', 'w')as f:
                 f.write(c)
                 f.close()
+            fix(db)
             quit()
     case "add":
         try:
