@@ -122,6 +122,11 @@ match action:
             quit()
         dbcheck(db)
         if valuereceive == "arg":
+            value = sys.argv[5:]
+            newvalue = ""
+            for i in range(0,len(value)):
+                newvalue = newvalue + value[i] + " "
+            value = newvalue
             with open(db + '.sweatdb', 'a')as f:
                 f.write(name + " " + value + "\n")
                 f.close()
@@ -134,9 +139,8 @@ match action:
                 a = f.read()
                 f.close()
             b = a.split("\n")
-            c = b[0].split(" ")
             with open(db + ".sweatdb", 'a')as f:
-                f.write(name + " " + c[0] + "\n")
+                f.write(name + " " + b[0] + "\n")
                 f.close()
             quit()
         elif valuereceive == "file-name":
@@ -148,6 +152,11 @@ match action:
                 f.close()
             b = a.split("\n")
             c = b[0].split(" ")
+            value = sys.argv[5:]
+            newvalue = ""
+            for i in range(0,len(value)):
+                newvalue = newvalue + value[i] + " "
+            value = newvalue
             with open(db + ".sweatdb", 'a')as f:
                 f.write(c[0] + " " + value + "\n")
                 f.close()
@@ -163,14 +172,13 @@ match action:
                 a = f.read()
                 f.close()
             b = a.split("\n")
-            c = b[0].split(" ")
             with open(name, 'r')as f:
                 a = f.read()
                 f.close()
             b = a.split("\n")
             d = b[0].split(" ")
             with open(db + ".sweatdb", 'a')as f:
-                f.write(d[0] + " " + c[0] + "\n")
+                f.write(d[0] + " " + b[0] + "\n")
                 f.close()
             quit()
     case "view":
@@ -205,7 +213,13 @@ match action:
             for i in range(1,len(b)):
                 a = b[i].split(" ")
                 if name == a[0]:
-                    print(a[1])
+                    n = ""
+                    for i in range(1,100000):
+                        try:
+                            n = n + a[i] + " "
+                        except:
+                            break
+                    print(n)
                     quit()
         elif option == "items":
             dbcheck(db)
@@ -251,6 +265,11 @@ match action:
             c = b[i].split(" ")
             if c[0] == item:
                 b.pop(i)
+                value = ""
+                newvalue = sys.argv[4:]
+                for i in range(0,len(newvalue)):
+                    value = value + newvalue[i] + " "
+                newvalue = value
                 b.append(item + " " + newvalue)
                 break
         for i in range(0,len(b)):
