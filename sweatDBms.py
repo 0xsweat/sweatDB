@@ -1,7 +1,8 @@
+import readline
 import sys
 import datetime
 import os
-import readline
+import subprocess
 version = "v1.4"
 help = ["sweatDB was created by 0xsweat AKA https://tryhackme.com/p/0xsweat AKA https://github.com/0xsweat\nIt is a simple database management system you can identify it's files with their .sweatdb extension", "create is a command used to create a db\n    usage : python3 sweatDBms.py create NAME", "add is a command used to add a object to a database, values can be supplied from a file or as an arguement\n   usage : python3 sweatDBms.py add arg DBNAME NAME VALUE\n    or : python3 sweatDBms.py add file-value DBNAME NAME fileWithValue\n     or : python3 sweatDBms.py add file-both DBNAME fileWithName fileWithValue\n     or : python3 sweatDBms.py file-name DBNAME fileWithName value", "help is a command to get some help, you can use it multiple ways :)\n    usage : python3 sweatDBms.py help\n     or : python3 sweatDBms.py help COMMAND", "delete is used for deleting a database or deleting a item\n     usage : python3 sweatDBms.py delete db NAME\n    or : python3 sweatDBms.py delete item db NAME", "view used for viewing items in a database, an items value, or the entire db, or you can view info on the DB\n  usage : python3 sweatDBms.py view DB all\n    or : python3 sweatDBms.py view DB item name\n   or : python3 sweatDBms.py view DB items\n   or : python3 sweatDBms.py view DB info", "edit used to edit the value of a item\n     usage : python3 sweatDBms.py edit DB ITEMNAME NEWVALUE", 'version will print the version of SWEATDB\n    usage : python3 sweatDBms.py version', 'interactive will launch a sweatDB shell\nyou are able to use "clear" to clear screen in interactive mode and "quit" to quit\n    usage : python3 sweatDBms.py interactive']
 try:
@@ -89,11 +90,10 @@ match action:
                 f.close()
             b = a.split("\n")
             c = ""
-            for i in range(0,len(b)):
-                d = b[i].split(" ")
-                if d[0] == item:
-                    b.pop(i)
-                    break
+            o = subprocess.run(['python3', 'sweatDBms.py', 'view', db, 'items'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+            z = o.split("\n")
+            o = z.index(item) + 1
+            b.pop(o)
             for i in range(0,len(b)):
                 c = c + b[i] + "\n"
             with open(db + '.sweatdb', 'w')as f:
@@ -262,17 +262,15 @@ match action:
             f.close()
         z = ""
         b = a.split("\n")
-        for i in range(0,len(b)):
-            c = b[i].split(" ")
-            if c[0] == item:
-                b.pop(i)
-                value = ""
-                newvalue = sys.argv[4:]
-                for i in range(0,len(newvalue)):
-                    value = value + newvalue[i] + " "
-                newvalue = value
-                b.append(item + " " + newvalue)
-                break
+        o = subprocess.run(['python3', 'sweatDBms.py', 'view', db, 'items'], stdout=subprocess.PIPE).stdout.decode('utf-8')
+        q = o.split("\n")
+        b.pop(q.index(item) + 1)
+        value = ""
+        newvalue = sys.argv[4:]
+        for i in range(0,len(newvalue)):
+            value = value + newvalue[i] + " "
+        newvalue = value
+        b.append(item + " " + newvalue)
         for i in range(0,len(b)):
             z = z + b[i] + "\n"
         with open(db + '.sweatdb', 'w')as f:
