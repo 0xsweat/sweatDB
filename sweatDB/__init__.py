@@ -17,7 +17,7 @@ class actions :
     
     def delete(db,delete_type,item=''):
         if e(db) != True:
-            return f"Database : {name} doesn't exist"
+            return f"Database : {db} doesn't exist"
         if delete_type == "db":
             os.remove(db)
         elif item == '':
