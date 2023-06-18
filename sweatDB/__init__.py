@@ -36,6 +36,7 @@ class actions :
     # View ALL items, An item, item names, info, item count, and you can specify the limit with start && end.
 
     def view(db,option='all',item='',start=1,end=0):
+        option = option.lower()
         if e(db) != True:
             raise Exception(f'Database {db} not found')
         elif option == "all":
@@ -46,9 +47,11 @@ class actions :
                 return c
         elif option == "item":
             b = open(db, 'r').read().split("\n")
+            output = ''
             for i in range(1,len(b)):
-                if b[i].startswith(f'{item} '):
-                    return(''.join([f'{x} ' for x in b[i].split(" ")[1:]])[:-1])
+                if b[i].startswith(f'{item}'):
+                    output += ''.join([f'{x} ' for x in b[i].split(" ")[1:]])[:-1] + "\n"
+            return output
             raise Exception(f'{item} not present in {db}')
         elif option == "items":
             if start > end and start == 1:
@@ -59,7 +62,7 @@ class actions :
             return(open(db, 'r').read().split("\n")[0])
         elif option == "count":
             return(open(db, 'r').read().count("\n") - 1)
-
+                
     # Edit an item in a database.
 
     def edit(db,item,value):
