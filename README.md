@@ -47,5 +47,7 @@ f = ''.join([f"{x.replace('fruits-','')}\n" for x in sdb.view('inventory','iv','
 print(f"Vegetables in inventory :\n{v}")
 print(f"Fruits in inventory :\n{f}")
 ```
+![siteexample](https://github.com/0xsweat/sweatDB-pypi/assets/83222877/33f2d706-e867-4301-afc3-d67ca1579a5a)
+that gif looks horrible...
 ## Installation
 pip install sweatDB
