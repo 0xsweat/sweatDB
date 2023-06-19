@@ -5,6 +5,25 @@ SweatDB is a cutting-edge database management system that offers a simplified sy
 ```bash
 pip install sweatDB
 ```
+## SQL Comparison to sweatDB
+
+### SQL
+```sql
+CREATE TABLE people (Name TEXT,Location TEXT);
+INSERT INTO people (Name,Location,Name,Location) VALUES ('Dorito man','Dallas Texas','John Adams','New york New york');
+SELECT Name FROM people WHERE Name like 'D%';
+```
+
+### Python
+```py
+from sweatDB import actions as sdb
+
+sdb.create('people')
+for a,b in {'!Name!Dorito':'man','!Location!Dorito':'Dallas Texas','!Name!John':'Adams','!Location!John':'New york New york'}.items():
+    sdb.add('people',a,b)
+
+print(sdb.view('people','iv','!Name!D'))
+```
 
 ## First example Usage
 ```py
