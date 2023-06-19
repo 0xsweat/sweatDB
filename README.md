@@ -9,7 +9,8 @@ pip install sweatDB
 
 ### SQL
 ```sql
-CREATE TABLE people (Name TEXT,Location TEXT);
+CREATE TABLE people (Name TEXT,
+    Location TEXT);
 INSERT INTO people (
     Name,
     Location,
