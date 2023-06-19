@@ -1,7 +1,12 @@
 # About sweatDB
 SweatDB is a cutting-edge database management system that offers a simplified syntax, making it an ideal choice for users seeking an easier alternative to SQL. With SweatDB, you can efficiently organize, store, and retrieve your data without the complexities associated with traditional database systems.
-## First example Usage
 
+## Installation
+```bash
+pip install sweatDB
+```
+
+## First example Usage
 ```py
 from sweatDB import actions as sdb
 
@@ -17,11 +22,13 @@ print(sdb.view('test', start=50, end=60))
 sdb.delete('test', delete_type='db')
 
 ```
+
 <details>
 <summary><b>Preview</b></summary>
 
 ![image](https://github.com/0xsweat/sweatDB-pypi/blob/main/images/example.png?raw=true)
 </details>
+
 
 ## Second example Usage
 
@@ -76,9 +83,12 @@ print(f"Fruits in inventory:\n{fruits_inventory}")
 
 ![image](https://github.com/0xsweat/sweatDB-pypi/blob/main/images/example2.png?raw=true)
 </detail>
+
 ## Gif Preview
+
+<details>
+<summary><b>Preview</b></summary>
+    
 ![siteexample](https://github.com/0xsweat/sweatDB-pypi/assets/83222877/33f2d706-e867-4301-afc3-d67ca1579a5a)
 that gif looks horrible...
-
-## Installation
-pip install sweatDB
+</detail>
