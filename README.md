@@ -18,11 +18,21 @@ SELECT Name FROM people WHERE Name like 'D%';
 ```py
 from sweatDB import actions as sdb
 
-sdb.create('people')
-for a,b in {'!Name!Dorito':'man','!Location!Dorito':'Dallas Texas','!Name!John':'Adams','!Location!John':'New york New york'}.items():
-    sdb.add('people',a,b)
+sdb.create_database('people')
 
-print(sdb.view('people','iv','!Name!D'))
+data = {
+    '!Name!Dorito': 'man',
+    '!Location!Dorito': 'Dallas, Texas',
+    '!Name!John': 'Adams',
+    '!Location!John': 'New York, New York'
+}
+
+for key, value in data.items():
+    sdb.add_item('people', key, value)
+
+results = sdb.view('people', 'iv', '!Name!D')
+print(results)
+
 ```
 
 ## First example Usage
