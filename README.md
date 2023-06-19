@@ -17,7 +17,11 @@ print(sdb.view('test', start=50, end=60))
 sdb.delete('test', delete_type='db')
 
 ```
+<details>
+<summary><b>Preview</b></summary>
+
 ![image](https://github.com/0xsweat/sweatDB-pypi/blob/main/images/example.png?raw=true)
+</details>
 
 ## Second example Usage
 
@@ -67,8 +71,11 @@ print(f"Vegetables in inventory:\n{vegetables_inventory}")
 print(f"Fruits in inventory:\n{fruits_inventory}")
 
 ```
-![image](https://github.com/0xsweat/sweatDB-pypi/blob/main/images/example2.png?raw=true)
+<details>
+<summary><b>Preview</b></summary>
 
+![image](https://github.com/0xsweat/sweatDB-pypi/blob/main/images/example2.png?raw=true)
+</detail>
 ## Gif Preview
 ![siteexample](https://github.com/0xsweat/sweatDB-pypi/assets/83222877/33f2d706-e867-4301-afc3-d67ca1579a5a)
 that gif looks horrible...
