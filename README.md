@@ -82,12 +82,11 @@ print(f"Fruits in inventory:\n{fruits_inventory}")
 <summary><b>Preview</b></summary>
 
 ![image](https://github.com/0xsweat/sweatDB-pypi/blob/main/images/example2.png?raw=true)
-</detail>
+</details>
 
 ## Gif Preview
-
 <details>
-<summary><b>Preview</b></summary>
+<summary><b>Gif Preview</b></summary>
     
 ![siteexample](https://github.com/0xsweat/sweatDB-pypi/assets/83222877/33f2d706-e867-4301-afc3-d67ca1579a5a)
 that gif looks horrible...
