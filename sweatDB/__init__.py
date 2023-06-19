@@ -34,12 +34,15 @@ class actions :
     # Add an item to a database.
 
     def add(db,name,value):
-        if e(db):
-            with lf(db,'ab') as f:
-                f.write(bytes(f'{name} {value}\n','utf-8'))
-                f.close()
-        else:
-            raise Exception(f'Database {db} not found')
+        try:
+            if e(db):
+                with lf(db,'ab') as f:
+                    f.write(bytes(f'{name} {value}\n','utf-8'))
+                    f.close()
+            else:
+                pass
+        except:
+            print(f"Database {db} not found")
 
     # View ALL items, An item, item names, info, item count, and you can specify the limit with start && end.
 
