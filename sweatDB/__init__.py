@@ -1,13 +1,14 @@
 import datetime
 import os
 import lzma
+
 version = "v2.0"
 e = os.path.isfile
 lf = lzma.LZMAFile
+
 class actions :
     
     # Create a database.
-    
     def create(db):
         if e(db):
             raise Exception(f"{db} already exists")
@@ -16,7 +17,6 @@ class actions :
             lf(db,'wb').write(a)
 
     # Delete an item or database.
-    
     def delete(db,item='',delete_type='item'):
         if e(db) != True:
             return f"Database : {db} doesn't exist"
@@ -31,8 +31,8 @@ class actions :
             with lf(db, 'wb')as f:
                 f.write(bytes("".join([f"{x}\n" for x in a if x.startswith(f'{item}') == False])[:-1],'utf-8'))
                 f.close()
+                
     # Add an item to a database.
-
     def add(db,name,value):
         try:
             if e(db):
@@ -45,7 +45,6 @@ class actions :
             print(f"Database {db} not found")
 
     # View ALL items, An item, item names, info, item count, and you can specify the limit with start && end.
-
     def view(db,option='all',item='',start=1,end=0):
         option = option.lower()
         if e(db) != True:
@@ -88,7 +87,6 @@ class actions :
             return(''.join([f'{x}\n' for x in str(lf(db, 'rb').read(),'utf-8').split('\n')[1:]])[:-1])
                 
     # Edit an item in a database.
-
     def edit(db,item,value,t='value'):
         if e(db) != True:
             return f'Database {db} does not exist'
