@@ -10,7 +10,15 @@ pip install sweatDB
 ### SQL
 ```sql
 CREATE TABLE people (Name TEXT,Location TEXT);
-INSERT INTO people (Name,Location,Name,Location) VALUES ('Dorito man','Dallas Texas','John Adams','New york New york');
+INSERT INTO people (
+    Name,
+    Location,
+    Name,
+    Location) 
+VALUES ('Dorito man',
+    'Dallas Texas',
+    'John Adams',
+    'New york New york');
 SELECT Name FROM people WHERE Name like 'D%';
 ```
 
@@ -18,7 +26,7 @@ SELECT Name FROM people WHERE Name like 'D%';
 ```py
 from sweatDB import actions as sdb
 
-sdb.create_database('people')
+sdb.create('people')
 
 data = {
     '!Name!Dorito': 'man',
@@ -28,7 +36,7 @@ data = {
 }
 
 for key, value in data.items():
-    sdb.add_item('people', key, value)
+    sdb.add('people', key, value)
 
 results = sdb.view('people', 'iv', '!Name!D')
 print(results)
