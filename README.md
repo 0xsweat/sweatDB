@@ -1,3 +1,4 @@
+![sweatdb](https://github.com/0xsweat/sweatDB-pypi/assets/83222877/fc0eeafb-b1b4-434f-ab2a-9e03035a2ab5)
 # About sweatDB
 SweatDB is a cutting-edge database management system that offers a simplified syntax, making it an ideal choice for users seeking an easier alternative to SQL. With SweatDB, you can efficiently organize, store, and retrieve your data without the complexities associated with traditional database systems.
 
